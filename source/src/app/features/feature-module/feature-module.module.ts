@@ -1,18 +1,17 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { DashboardComponent } from '../ResumeCreator/component/dashboard/dashboard.component';
 import { RouterModule } from '@angular/router';
 import { HomeComponent } from '../home/home.component';
 
 let routing = RouterModule.forChild([
-  {path : "home", component: HomeComponent},
-  {path: "**", redirectTo: "/home"}
-])
+  {path : "", component: HomeComponent,
+  children:[
+    {path:"RC", loadChildren: ()=> import('../ResumeCreator/rc-module/rc-module.module').then(m=>m.RcModuleModule)}]}
+]);
 
 @NgModule({
   declarations: [
-    HomeComponent,
-    DashboardComponent,
+    HomeComponent
   ],
   imports: [
     CommonModule,
