@@ -1,11 +1,12 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { DashboardComponent } from '../ResumeCreator/component/dashboard/dashboard.component';
-import { HomeComponent } from '../ResumeCreator/component/home/home.component';
 import { RouterModule } from '@angular/router';
+import { HomeComponent } from '../home/home.component';
 
 let routing = RouterModule.forChild([
   {path : "home", component: HomeComponent},
+  {path: "**", redirectTo: "/home"}
 ])
 
 @NgModule({
@@ -14,7 +15,8 @@ let routing = RouterModule.forChild([
     DashboardComponent,
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    routing
   ]
 })
 export class FeatureModuleModule { }

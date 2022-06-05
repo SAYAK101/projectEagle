@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Routes } from '@angular/router';
-import { HomeComponent } from './features/ResumeCreator/component/home/home.component';
+import { HomeComponent } from './features/home/home.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent }
