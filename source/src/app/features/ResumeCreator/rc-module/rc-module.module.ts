@@ -3,7 +3,6 @@ import { CommonModule } from '@angular/common';
 import { DashboardComponent } from '../component/dashboard/dashboard.component';
 import { ReactiveFormsComponent } from '../component/reactive-forms/reactive-forms.component';
 import { RouterModule } from '@angular/router';
-import { MaterialModule } from '../../material/material.module';
 
 
 let routing = RouterModule.forChild([
@@ -14,7 +13,7 @@ let routing = RouterModule.forChild([
 
 @NgModule({
   imports: [
-    CommonModule, routing, MaterialModule
+    CommonModule, routing
   ],
   declarations: [DashboardComponent, ReactiveFormsComponent]
 })
