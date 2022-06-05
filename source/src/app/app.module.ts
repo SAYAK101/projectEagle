@@ -12,7 +12,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
   imports: [
     BrowserModule,
     RouterModule.forRoot([
-      {path: 'project', loadChildren: ()=> import('./features/feature-module/feature-module.module').then(m=>m.FeatureModuleModule)}
+      {path: '', loadChildren: ()=> import('./features/feature-module.module').then(m=>m.FeatureModuleModule)},{path: '**', redirectTo: ''}
     ]),
     FormsModule,
     BrowserModule,

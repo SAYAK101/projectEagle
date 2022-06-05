@@ -1,13 +1,14 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
-import { HomeComponent } from '../home/home.component';
-import { MaterialModule } from '../Shared/material/material.module';
+import { HomeComponent } from './home/home.component';
+import { MaterialModule } from './Shared/material/material.module';
 
 let routing = RouterModule.forChild([
-  {path : "", component: HomeComponent,
+  {path : 'project', component: HomeComponent,
   children:[
-    {path:"rc", loadChildren: ()=> import('../ResumeCreator/rc-module/rc-module.module').then(m=>m.RcModuleModule)}]}
+    {path:"rc", loadChildren: ()=> import('./ResumeCreator/rc-module.module').then(m=>m.RcModuleModule)}]},
+  {path: '**', redirectTo: 'project'}
 ]);
 
 @NgModule({

@@ -1,0 +1,16 @@
+.flex-spacer {
+  flex-grow: 1;
+}
+
+.navbar-layout {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  padding: 8px 16px;
+
+  > .mat-button {
+    &:last-child {
+      margin-left: auto;
+    }
+  }
+}

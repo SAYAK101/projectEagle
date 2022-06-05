@@ -1,0 +1,14 @@
+.component-page-header {
+  display: flex;
+  align-items: center;
+}
+
+.primary-header {
+  padding-left: 20px;
+  .display-1 {
+    font-weight: 100;
+    margin: 0;
+    padding: 25px 8px;
+    font-size: 48px;
+  }
+}
