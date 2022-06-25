@@ -1,11 +1,11 @@
-<nav class="navbar-layout">
-  <a mat-icon-button routerLink="/project" aria-label="">
+<mat-toolbar class="navbar-layout" color="primary">
+  <a mat-button routerLink="/project" aria-label="">
     <span>{{title}}</span>
   </a>
   <div class="flex-spacer"></div>
-  <button mat-icon-button>
+  <button mat-icon-button> <!--Add click function to trigger menu-->
     <mat-icon>menu</mat-icon>
 </button>
-</nav>
+</mat-toolbar>
 <router-outlet></router-outlet>
 

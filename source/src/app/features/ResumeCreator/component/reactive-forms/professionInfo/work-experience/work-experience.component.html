@@ -1,0 +1,38 @@
+
+<div>
+  <form [formGroup]="workExp" class="form-container">
+    <mat-form-field class="full-width">
+      <mat-label>Name</mat-label>
+      <input matInput formControlName="name" placeholder="Google">
+    </mat-form-field>
+    <mat-form-field class="full-width">
+      <mat-label>Job Description</mat-label>
+      <input matInput formControlName="jobDescription" placeholder="Software Engineer">
+    </mat-form-field>
+    <table class="full-width">
+      <tr>
+        <td class="half-width">
+          <mat-form-field class="full-width">
+            <mat-label>Years of Experience</mat-label>
+            <mat-date-range-input
+              [formGroup]="tenure"
+              [rangePicker]="campaignOnePicker">
+              <input matStartDate placeholder="Start date" formControlName="start">
+              <input matEndDate placeholder="End date" formControlName="end">
+            </mat-date-range-input>
+            <mat-hint>MM/DD/YYYY – MM/DD/YYYY</mat-hint>
+            <mat-datepicker-toggle matSuffix [for]="campaignOnePicker"></mat-datepicker-toggle>
+            <mat-date-range-picker #campaignOnePicker></mat-date-range-picker>
+          </mat-form-field>
+        </td>
+        <td class="half-width">
+         <div class="container-flex">
+          <button mat-button (click)="onSaveClick()">Save</button>
+          <button mat-button mat-dialog-close>Cancel</button>
+         </div>
+        </td>
+      </tr>
+    </table>
+
+  </form>
+</div>

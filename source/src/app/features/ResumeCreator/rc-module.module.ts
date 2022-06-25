@@ -5,6 +5,9 @@ import { ReactiveFormsComponent } from './component/reactive-forms/reactive-form
 import { RouterModule } from '@angular/router';
 import { MaterialModule } from '../Shared/material/material.module';
 import { ComponentPageHeaderComponent } from './component/component-page-header/component-page-header.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { WorkExperienceComponent } from './component/reactive-forms/professionInfo/work-experience/work-experience.component';
+import { ViewTableComponent } from './component/reactive-forms/professionInfo/view-table/view-table.component';
 
 
 let routing = RouterModule.forChild([
@@ -15,9 +18,9 @@ let routing = RouterModule.forChild([
 
 @NgModule({
   imports: [
-    CommonModule, routing, MaterialModule
+    CommonModule, routing, MaterialModule, ReactiveFormsModule
   ],
-  declarations: [DashboardComponent, ReactiveFormsComponent, ComponentPageHeaderComponent],
-  entryComponents: [ComponentPageHeaderComponent]
+  declarations: [DashboardComponent, ReactiveFormsComponent, ComponentPageHeaderComponent, WorkExperienceComponent, ViewTableComponent],
+  entryComponents: [ComponentPageHeaderComponent, ViewTableComponent]
 })
 export class RcModuleModule { }
