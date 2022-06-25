@@ -1,3 +1,7 @@
 .full-width {
   width: 100%;
 }
+.container-flex {
+  display: flex; /* or inline-flex */
+  justify-content: space-around;
+}

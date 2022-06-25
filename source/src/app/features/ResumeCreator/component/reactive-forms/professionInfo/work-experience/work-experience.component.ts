@@ -22,14 +22,29 @@ export class WorkExperienceComponent implements OnInit {
     name: new FormControl('', Validators.required),
     jobDescription: new FormControl('', Validators.required),
     campaignOne: this.tenure
-  })
+  });
+
+  get nameControl() {
+    return this.workExp.get('name') as FormControl;
+  }
+
+  get jdControl() {
+    return this.workExp.get('jobDescription') as FormControl;
+  }
 
   get tenureGet() {
     return this.workExp.get('campaignOne') as FormGroup;
   }
 
   constructor(public dialogRef: MatDialogRef<WorkExperienceComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: WorkExperienceDto) { }
+    @Inject(MAT_DIALOG_DATA) public data: WorkExperienceDto) {
+      if(data){
+        this.workExp.get('name')?.patchValue(data.jobName);
+        this.workExp.get('jobDescription')?.patchValue(data.jobDescription);
+        this.tenureGet.get('start')?.patchValue(data.startDate);
+        this.tenureGet.get('end')?.patchValue(data.endDate);
+      }
+     }
 
   ngOnInit() {
   }

@@ -40,10 +40,33 @@ export class ReactiveFormsComponent implements OnInit {
       width: '600px',
     });
 
-    dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
-      this.table_DATA = [...this.table_DATA, result]
+    dialogRef.afterClosed().subscribe((result: WorkExperienceDto) => {
+      if(result){
+        let id = this.table_DATA.length;
+        result.id = id;
+        this.table_DATA = [...this.table_DATA, result];
+      }
     });
+  }
+
+  editDialog(index: number): void {
+    let getData = this.table_DATA.find(x => x.id === index)
+    const dialogRef = this.dialog.open(WorkExperienceComponent, {
+      width: '600px',
+      data : getData
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      if(result){
+        let getData = this.table_DATA.find(x => x.id === result.id);
+        getData = result;
+      }
+    });
+  }
+
+  deleteItem(deleteItem: number) {
+    this.table_DATA.splice(deleteItem, 1);
+    this.table_DATA = [...this.table_DATA];
   }
 
 }

@@ -2,12 +2,18 @@
 <div>
   <form [formGroup]="workExp" class="form-container">
     <mat-form-field class="full-width">
-      <mat-label>Name</mat-label>
+      <mat-label>Organization Name</mat-label>
       <input matInput formControlName="name" placeholder="Google">
+      <mat-error *ngIf="nameControl.hasError('required')">
+        Organization name is <strong>required</strong>
+      </mat-error>
     </mat-form-field>
     <mat-form-field class="full-width">
       <mat-label>Job Description</mat-label>
       <input matInput formControlName="jobDescription" placeholder="Software Engineer">
+      <mat-error *ngIf="jdControl.hasError('required')">
+        Job description is <strong>required</strong>
+      </mat-error>
     </mat-form-field>
     <table class="full-width">
       <tr>

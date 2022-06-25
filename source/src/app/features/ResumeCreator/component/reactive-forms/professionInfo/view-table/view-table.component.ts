@@ -1,4 +1,4 @@
-import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import { ChangeDetectorRef, Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
 import { WorkExperienceDto } from 'src/app/features/Shared/material/models/work-experience-dto';
 
 @Component({
@@ -9,20 +9,28 @@ import { WorkExperienceDto } from 'src/app/features/Shared/material/models/work-
 export class ViewTableComponent implements OnInit, OnChanges {
 
   @Input() table_DATA: WorkExperienceDto[] = [];
-  dataSource = this.table_DATA;
+  @Output() editItemEvent = new EventEmitter<number>();
+  @Output() deleteItemEvent = new EventEmitter<number>();
+  dataSource : WorkExperienceDto[] = [];
   constructor() { }
 
   ngOnChanges(changes: SimpleChanges): void {
     this.dataSource = this.table_DATA;
   }
 
-  displayedColumns: string[] = ['name', 'jd', 'yoe', 'flag'];
+  displayedColumns: string[] = ['name', 'jd', 'yoe', 'flag', 'Icons'];
 
   ngOnInit() {
   }
 
-  calculateDays(days: number):number{
+  calculateDays(days: number): number {
     return Math.ceil(days / 365);
   }
 
+  onEdit(index: number) {
+    this.editItemEvent.emit(index);
+  }
+  onDelete(index: number) {
+    this.deleteItemEvent.emit(index);
+  }
 }

@@ -1,4 +1,5 @@
 export class WorkExperienceDto implements IworkExperience{
+  id: number = 0;
   tenure: number = 0;
   jobName: string = '';
   jobDescription: string = '';
@@ -8,6 +9,7 @@ export class WorkExperienceDto implements IworkExperience{
 }
 
 export interface IworkExperience{
+  id: number;
   jobName: string;
   jobDescription: string;
   startDate: string;
